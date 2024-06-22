@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --secondary-color: #34495e;
+    --accent-color: #34495e;
     --primary-color: #3498db;
-    --accent-color: #2ecc71;
+    --secondary-color: #2ecc71;
     --text-color: #2c3e50;
     --bg-color: #ecf0f17d;
     --section-bg: #fff;
@@ -19,7 +19,6 @@ body {
     background-image: url('https://i.imgur.com/PHeoy2b.jpeg'), url('https://i.imgur.com/ZfhxOgc_d.webp?maxwidth=760&fidelity=grand');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right bottom;
-    
     background-size: 250px, 250px;
 }
 
@@ -29,12 +28,13 @@ body {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 header {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: #fff;
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -42,14 +42,14 @@ header {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     color: var(--primary-color);
-    margin-top: 30px;
+    margin-top: 20px;
     padding-bottom: 5px;
     border-bottom: 2px solid var(--secondary-color);
 }
@@ -60,11 +60,12 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .contact li {
-    margin: 5px 15px;
-    font-size: 1.1em;
+    margin: 5px 10px;
+    font-size: 0.9em;
     transition: transform 0.3s ease;
 }
 
@@ -74,8 +75,8 @@ h2 {
 
 .section {
     background-color: var(--section-bg);
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -83,8 +84,8 @@ h2 {
 }
 
 .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .section h3 {
@@ -95,37 +96,39 @@ h2 {
 .intro {
     background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
     color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .project-card {
     background-color: var(--section-bg);
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px) rotate(1deg);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .skills-languages {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .skills, .languages {
-    flex: 1;
-    min-width: 250px;
+    flex: 1 1 250px;
     margin: 10px;
 }
 
@@ -134,21 +137,17 @@ h2 {
 }
 
 .skills li, .languages li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     transition: transform 0.3s ease;
 }
 
 .skills li:hover, .languages li:hover {
-    transform: translateX(10px);
+    transform: translateX(5px);
 }
 
 .fas, .fab {
-    margin-right: 10px;
+    margin-right: 8px;
     color: var(--accent-color);
-}
-
-h2 i {
-    animation: pulse 3s infinite;
 }
 
 @keyframes headerAnimation {
@@ -157,27 +156,43 @@ h2 i {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
+    0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
-
 @media (max-width: 768px) {
-    .skills-languages {
-        flex-direction: column;
+    .container {
+        padding: 15px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-    .project-grid {
-        grid-template-columns: 1fr;
+    h1 {
+        font-size: 1.8em;
     }
-    body {
-        background-size: 100px, 100px;
+
+    .contact li {
+        margin: 5px 8px;
+        font-size: 0.8em;
+    }
+
+    .section {
+        padding: 12px;
+    }
+
+    .intro {
+        padding: 12px;
+    }
+
+    .project-card {
+        padding: 12px;
+    }
+
+    .skills, .languages {
+        margin: 8px;
     }
 }
