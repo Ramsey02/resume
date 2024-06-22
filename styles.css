@@ -43,19 +43,18 @@ header {
     position: relative;
     z-index: 2;
 }
-
 .profile-photo {
     position: absolute;
-    top: 250px; /* Adjusted to move the photo further down */
+    top: 250px;
     left: 20px;
     width: 250px;
     height: 250px;
-    background-image: url('https://media.licdn.com/dms/image/D4E03AQHpf8d5odfplA/profile-displayphoto-shrink_800_800/0/1700222970368?e=1724284800&v=beta&t=-yb0HmobqMtj-CgfQ_Tq2xZ8ZBC91L-hXQEMjrCpDwE');
+    background-image: url('images/profile_photo.jpeg'); /* Adjust this path as needed */
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Ensures the photo is below the header */
+    z-index: 1;
 }
 
 /* Adjust the main content to make space for the photo */
