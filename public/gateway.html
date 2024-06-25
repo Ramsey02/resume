@@ -52,7 +52,7 @@
                 .then(data => {
                     debugInfo.textContent += `\nResponse data: ${JSON.stringify(data)}`;
                     if (data.message === 'Email submitted successfully') {
-                        window.location.href = '/';
+                        window.location.href = '/'; // Redirect to main page on success
                     } else {
                         errorMessage.textContent = 'Error submitting email: ' + (data.error || 'Unknown error');
                     }
