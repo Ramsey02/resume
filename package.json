@@ -21,10 +21,10 @@
     "body-parser": "^1.19.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.22"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=12.22.9"
   },
   "repository": {
     "type": "git",
