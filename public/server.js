@@ -7,11 +7,18 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+
+// Serve static files from the public directory
 app.use(express.static('public'));
 
 // Serve gateway.html as the default page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'gateway.html'));
+});
+
+// Explicit route for index.html
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.post('/submit-email', async (req, res) => {
