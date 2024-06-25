@@ -15,21 +15,30 @@
     </div>
 
     <script>
-        function submitEmail() {
+        async function submitEmail() {
             const email = document.getElementById('emailInput').value;
             if (email && email.includes('@')) {
-                localStorage.setItem('userEmail', email);
-                window.location.href = 'index.html';
+                try {
+                    const response = await fetch('/submit-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email }),
+                    });
+                    
+                    if (response.ok) {
+                        localStorage.setItem('userEmail', email);
+                        window.location.href = 'index.html';
+                    } else {
+                        throw new Error('Failed to submit email');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
             } else {
                 alert('Please enter a valid email address.');
-            }
-        }
-
-        // Check if email already exists
-        window.onload = function() {
-            const storedEmail = localStorage.getItem('userEmail');
-            if (storedEmail) {
-                window.location.href = 'index.html';
             }
         }
     </script>

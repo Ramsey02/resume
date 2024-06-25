@@ -4,10 +4,10 @@
   "description": "Ramsey Eleryan's resume website with email collection",
   "main": "server.js",
   "scripts": {
-      "start": "node server.js",
-      "build": "npm install --omit=dev"
-    },
-"keywords": [
+    "start": "node server.js",
+    "build": "npm install --omit=dev"
+  },
+  "keywords": [
     "resume",
     "portfolio",
     "nodejs",
@@ -16,8 +16,8 @@
   "author": "Ramsey Eleryan",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "body-parser": "^1.19.0"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ramsey02/resume"
+    "url": "git+https://github.com/Ramsey02/resume.git"
   },
   "bugs": {
     "url": "https://github.com/Ramsey02/resume"
