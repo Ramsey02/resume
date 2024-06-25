@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gateway - Ramsey Eleryan Resume</title>
+    <title>Welcome - Ramsey Eleryan Resume</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,28 +15,11 @@
     </div>
 
     <script>
-        async function submitEmail() {
+        function submitEmail() {
             const email = document.getElementById('emailInput').value;
             if (email && email.includes('@')) {
-                try {
-                    const response = await fetch('/submit-email', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ email }),
-                    });
-                    
-                    if (response.ok) {
-                        localStorage.setItem('userEmail', email);
-                        window.location.href = 'index.html';
-                    } else {
-                        throw new Error('Failed to submit email');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
-                }
+                localStorage.setItem('userEmail', email);
+                window.location.href = 'index.html';
             } else {
                 alert('Please enter a valid email address.');
             }
