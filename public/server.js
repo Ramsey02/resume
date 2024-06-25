@@ -1,19 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
+// Serve gateway.html as the default page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'gateway.html'));
 });
 
-app.post('/submit-email', (req, res) => {
+app.post('/submit-email', async (req, res) => {
     const { email } = req.body;
     if (!email) {
         return res.status(400).json({ error: 'Email is required' });
@@ -22,13 +23,24 @@ app.post('/submit-email', (req, res) => {
     const timestamp = new Date().toISOString();
     const logEntry = `${timestamp}: ${email}\n`;
 
-    fs.appendFile('emails.log', logEntry, (err) => {
-        if (err) {
-            console.error('Error writing to log file:', err);
-            return res.status(500).json({ error: 'Internal server error' });
-        }
+    try {
+        await fs.appendFile('emails.log', logEntry);
         res.json({ message: 'Email submitted successfully' });
-    });
+    } catch (err) {
+        console.error('Error writing to log file:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// Endpoint to view logs (protect this in production!)
+app.get('/view-logs', async (req, res) => {
+    try {
+        const data = await fs.readFile('emails.log', 'utf8');
+        res.type('text').send(data);
+    } catch (err) {
+        console.error('Error reading log file:', err);
+        res.status(500).send('Error reading log file');
+    }
 });
 
 app.listen(port, () => {
