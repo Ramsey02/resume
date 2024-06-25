@@ -57,9 +57,8 @@ header {
     z-index: 1;
 }
 
-/* Adjust the main content to make space for the photo */
 .main-content {
-    margin-left: 280px; /* Adjust based on photo width + some extra space */
+    margin-left: 280px; 
 }
 
 h1 {
