@@ -1,0 +1,29 @@
+# Dependency directories
+/node_modules
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Railway specific
+.railway/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Specific to your project
+# Uncomment the following line if you don't want to track package-lock.json
+# /package-lock.json
+
+# Uncomment if you have any build output directory
+# /dist
+# /build
