@@ -14,11 +14,15 @@
         <p>Please enter your email to access the resume:</p>
         <input type="email" id="emailInput" placeholder="Enter your email">
         <button onclick="submitEmail()">Submit</button>
+        <p id="errorMessage" style="color: red;"></p>
     </div>
 
     <script>
         function submitEmail() {
             const email = document.getElementById('emailInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = ''; // Clear previous error messages
+
             if (email && email.includes('@')) {
                 fetch('/submit-email', {
                     method: 'POST',
@@ -27,21 +31,26 @@
                     },
                     body: JSON.stringify({ email }),
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.message === 'Email submitted successfully') {
                         localStorage.setItem('userEmail', email);
                         window.location.href = '/index.html';
                     } else {
-                        alert('Error submitting email. Please try again.');
+                        errorMessage.textContent = 'Error submitting email: ' + data.error;
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
+                    errorMessage.textContent = 'An error occurred: ' + error.message;
                 });
             } else {
-                alert('Please enter a valid email address.');
+                errorMessage.textContent = 'Please enter a valid email address.';
             }
         }
     </script>
