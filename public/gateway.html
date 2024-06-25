@@ -15,15 +15,19 @@
         <input type="email" id="emailInput" placeholder="Enter your email">
         <button onclick="submitEmail()">Submit</button>
         <p id="errorMessage" style="color: red;"></p>
+        <p id="debugInfo" style="color: blue;"></p>
     </div>
 
     <script>
         function submitEmail() {
             const email = document.getElementById('emailInput').value;
             const errorMessage = document.getElementById('errorMessage');
-            errorMessage.textContent = ''; // Clear previous error messages
+            const debugInfo = document.getElementById('debugInfo');
+            errorMessage.textContent = '';
+            debugInfo.textContent = '';
 
             if (email && email.includes('@')) {
+                debugInfo.textContent = 'Sending request...';
                 fetch('/submit-email', {
                     method: 'POST',
                     headers: {
@@ -32,15 +36,16 @@
                     body: JSON.stringify({ email }),
                 })
                 .then(response => {
+                    debugInfo.textContent += `\nResponse status: ${response.status}`;
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     return response.json();
                 })
                 .then(data => {
+                    debugInfo.textContent += `\nResponse data: ${JSON.stringify(data)}`;
                     if (data.message === 'Email submitted successfully') {
-                        localStorage.setItem('userEmail', email);
-                        window.location.href = '/index.html';
+                        window.location.href = '/';
                     } else {
                         errorMessage.textContent = 'Error submitting email: ' + data.error;
                     }
@@ -48,6 +53,7 @@
                 .catch(error => {
                     console.error('Error:', error);
                     errorMessage.textContent = 'An error occurred: ' + error.message;
+                    debugInfo.textContent += `\nError details: ${error.toString()}`;
                 });
             } else {
                 errorMessage.textContent = 'Please enter a valid email address.';
