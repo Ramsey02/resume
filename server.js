@@ -1,18 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Existing routes and middleware here
 
-// New route for email submission
 app.post('/api/submit-email', (req, res) => {
+    console.log('Received email submission request');
+    console.log('Email:', req.body.email);
     const { email } = req.body;
     if (!email) {
         return res.status(400).json({ error: 'Email is required' });

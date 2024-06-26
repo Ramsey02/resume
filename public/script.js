@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = emailInput.value;
 
         try {
-            const response = await fetch('/api/submit-email', {
+            const response = await fetch('/api/submit-email', {  // Make sure this matches your server route
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
