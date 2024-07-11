@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --accent-color: #34495e;
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --text-color: #2c3e50;
-    --bg-color: #ecf0f17d;
-    --section-bg: #fff;
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --accent-color: #ff006e;
+    --text-color: #2b2d42;
+    --bg-color: #f8f9fa;
+    --section-bg: #ffffff;
 }
 
 body {
@@ -16,63 +16,96 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    background-image: url('https://i.imgur.com/PHeoy2b.jpeg'), url('https://i.imgur.com/ZfhxOgc_d.webp?maxwidth=760&fidelity=grand');
-    background-repeat: no-repeat, no-repeat;
-    background-position: left bottom, right bottom;
-    background-size: 250px, 250px;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.63);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background-color: var(--section-bg);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
     position: relative;
+    overflow: hidden;
 }
 
 header {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: #ffffffa1;
-    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    padding: 40px 20px;
     text-align: center;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: headerAnimation 1.5s ease-out;
+    border-radius: 15px 15px 0 0;
     position: relative;
-    z-index: 2;
-}
-.profile-photo {
-    position: absolute;
-    top: 250px;
-    left: 20px;
-    width: 250px;
-    height: 250px;
-    background-image: url('files/profile_photo.jpeg'); /* Adjust this path as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    overflow: hidden;
 }
 
-/* Adjust the main content to make space for the photo */
-.main-content {
-    margin-left: 280px; /* Adjust based on photo width + some extra space */
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    animation: ripple 15s linear infinite;
+}
+
+@keyframes ripple {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--section-bg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin: 0 auto 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     color: var(--primary-color);
-    margin-top: 20px;
-    padding-bottom: 5px;
+    margin-top: 30px;
+    padding-bottom: 10px;
     border-bottom: 2px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+h2:hover::after {
+    transform: translateX(0);
 }
 
 .contact {
@@ -85,60 +118,87 @@ h2 {
 }
 
 .contact li {
-    margin: 5px 10px;
-    font-size: 0.9em;
-    transition: transform 0.3s ease;
+    margin: 5px 15px;
+    font-size: 1em;
+    transition: all 0.3s ease;
 }
 
 .contact li:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px);
+}
+
+.contact a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .section {
     background-color: var(--section-bg);
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    animation: fadeIn 1s ease-out forwards;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.section.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .section:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.section h3 {
-    color: var(--secondary-color);
-    margin-top: 0;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .intro {
     background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    color: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
 }
 
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .project-card {
     background-color: var(--section-bg);
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    transform: rotate(45deg);
     transition: all 0.5s ease;
 }
 
+.project-card:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
 .project-card:hover {
-    transform: translateY(-3px) rotate(1deg);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) rotate(2deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .skills-languages {
@@ -149,7 +209,7 @@ h2 {
 }
 
 .skills, .languages {
-    flex: 1 1 250px;
+    flex: 1 1 300px;
     margin: 10px;
 }
 
@@ -158,27 +218,36 @@ h2 {
 }
 
 .skills li, .languages li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.skills li::before, .languages li::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transform: translateY(-50%) scale(0);
     transition: transform 0.3s ease;
+}
+
+.skills li:hover::before, .languages li:hover::before {
+    transform: translateY(-50%) scale(1);
 }
 
 .skills li:hover, .languages li:hover {
     transform: translateX(5px);
-}
-
-.fas, .fab {
-    margin-right: 8px;
     color: var(--accent-color);
 }
 
-@keyframes headerAnimation {
-    0% { transform: translateY(-50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
-    100% { opacity: 1; transform: translateY(0); }
+.fas, .fab {
+    margin-right: 10px;
+    color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -189,49 +258,24 @@ h2 {
     .project-grid {
         grid-template-columns: 1fr;
     }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     .contact li {
-        margin: 5px 8px;
-        font-size: 0.8em;
+        margin: 5px 10px;
+        font-size: 0.9em;
     }
 
     .section {
-        padding: 12px;
+        padding: 15px;
     }
-
-    .intro {
-        padding: 12px;
-    }
-
-    .project-card {
-        padding: 12px;
-    }
-
-    .skills, .languages {
-        margin: 8px;
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-photo {
-        position: static;
-        margin: 20px auto;
-        width: 200px;
-        height: 200px;
-    }
-    
-    .main-content {
-        margin-left: 0;
-    }
-}
-
-@keyframes headerAnimation {
-    0% { transform: translateY(-50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
 }

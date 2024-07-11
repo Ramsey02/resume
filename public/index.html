@@ -6,39 +6,29 @@
     <title>Ramsey Eleryan - Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCLR2NFJ29"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XCLR2NFJ29');
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XCLR2NFJ29"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XCLR2NFJ29');
-</script>
-<script>
-    window.onload = function() {
-        const storedEmail = localStorage.getItem('userEmail');
-        if (!storedEmail) {
-            window.location.href = 'gateway.html';
-        }
-    }
-</script>
 <body>
-    <header>
-        <h1>Ramsey -Adam- Eleryan</h1>
-        <ul class="contact">
-            <li><a href="tel:+97254730520"><i class="fas fa-phone"></i> +972-54-730-5202</a></li>
-            <li><a href="mailto:ramzieleryan@gmail.com"><i class="fas fa-envelope"></i> ramzieleryan@gmail.com</a></li>
-            <li><a href="https://www.linkedin.com/in/ramsey--/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></li>
-            <!-- <li><a href="https://ramsey.up.railway.app/" target="_blank"><i class="fas fa-globe"></i> Resume Website</a></li> -->
-        </ul>
-        
-    </header>
-    <div class="profile-photo"></div>
-
     <div class="container">
+        <header>
+            <div class="profile-photo">
+                <img src="files/profile_photo.jpeg" alt="Ramsey Eleryan">
+            </div>
+            <h1>Ramsey -Adam- Eleryan</h1>
+            <ul class="contact">
+                <li><a href="tel:+97254730520"><i class="fas fa-phone"></i> +972-54-730-5202</a></li>
+                <li><a href="mailto:ramzieleryan@gmail.com"><i class="fas fa-envelope"></i> ramzieleryan@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/ramsey--/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></li>
+            </ul>
+        </header>
+
         <section class="intro section">
             <ul>
                 <li>🎓 Technion Computer Science 3<sup>rd</sup> year Student</li>
@@ -47,9 +37,9 @@
             </ul>
         </section>
         
-        <section class="education">
+        <section class="education section">
             <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
-            <div class="section">
+            <div class="subsection">
                 <h3>BSC IN COMPUTER SCIENCE AT TECHNION 2022-2025</h3>
                 <ul>
                     <li>🏅 Dean's List recipient for academic excellence</li>
@@ -65,15 +55,14 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="section">
+            <div class="subsection">
                 <h3>MOSHAL PROGRAM SCHOLAR 2022-2025</h3>
                 <p>🌟 Selected for this prestigious international program, fostering personal and professional growth through cutting-edge tools and versatile skill development.</p>
             </div>
         </section>
 
-        <section class="skills-languages">
-            <div class="skills section">
+        <section class="skills-languages section">
+            <div class="skills">
                 <h2><i class="fas fa-tools"></i> SKILLS</h2>
                 <ul>    
                     <li><i class="fas fa-code"></i> Programming: C, C++, Python, JavaScript, TypeScript, C#, Assembly, HTML, CSS</li>
@@ -81,7 +70,7 @@
                     <li><i class="fas fa-users"></i> Soft Skills: Communication, Teamwork, Problem-solving, Critical thinking, Leadership</li>
                 </ul>
             </div>
-            <div class="languages section">
+            <div class="languages">
                 <h2><i class="fas fa-language"></i> LANGUAGES</h2>
                 <ul>
                     <li><i class="fas fa-check-circle"></i> Hebrew - Full Professional Proficiency</li>
@@ -90,13 +79,13 @@
                 </ul>
             </div>
         </section>
-        <section class="projects">
+
+        <section class="projects section">
             <h2><i class="fas fa-project-diagram"></i> PROJECTS &amp; EXPERIENCE</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <h3>🏎️ F1 AUTONOMOUS TEAM MEMBER</h3>
-                    <p>Recently joined a Formula one car project, applying self-taught skills and knowledge in C++, Python, Docker, ROS to contribute to the development and optimization of the vehicle's autonomous system for an F1 car.
-                    </p>
+                    <p>Recently joined a Formula one car project, applying self-taught skills and knowledge in C++, Python, Docker, ROS to contribute to the development and optimization of the vehicle's autonomous system for an F1 car.</p>
                 </div>
                 <div class="project-card">
                     <h3>👨‍🏫 ACADEMIC MENTOR</h3>
@@ -113,21 +102,44 @@
                 </div>
                 <div class="project-card">
                     <h3>🖥️ FRONT-END DEVELOPER</h3>
-                    <p>As part of the Moshal Program, I contributed for a breif term as a Front-End Developer starting in December 2023 to a high-level project, collaborating with students and graduates nationwide. 
-                        with utilizing my self-taught skills in CSS, HTML, JavaScript, and TypeScript that I have acquired in the time.</p>
+                    <p>As part of the Moshal Program, I contributed for a brief term as a Front-End Developer starting in December 2023 to a high-level project, collaborating with students and graduates nationwide, utilizing my self-taught skills in CSS, HTML, JavaScript, and TypeScript.</p>
                 </div>
                 <div class="project-card">
-                    <h3>🔮Future Fit Career Accelerator</h3>
-                    <p>In this 6-week work-based project with The Future of Work Lab & the Moshal Program, I worked remotely as part of a global multidisciplinary team,
-                         researching & co-designing a Careers in Humane Technologies Newsletter. The objective of this project was to create new future-forward career
-                          advice for the next generation of graduates looking to take their next step in a tech career that focuses on building & deploying ethical tech for good.</p>
+                    <h3>🔮 Future Fit Career Accelerator</h3>
+                    <p>In this 6-week work-based project with The Future of Work Lab & the Moshal Program, I worked remotely as part of a global multidisciplinary team, researching & co-designing a Careers in Humane Technologies Newsletter. The objective was to create new future-forward career advice for the next generation of graduates looking to take their next step in a tech career that focuses on building & deploying ethical tech for good.</p>
                 </div>
             </div>
         </section>
-
-        
     </div>
 
+    <script>
+        window.onload = function() {
+            const storedEmail = localStorage.getItem('userEmail');
+            if (!storedEmail) {
+                window.location.href = 'gateway.html';
+            }
+        }
 
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            document.querySelectorAll('.section').forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
 </body>
 </html>
