@@ -21,13 +21,9 @@ app.post('/api/submit-email', (req, res) => {
     }
 
     const timestamp = new Date().toISOString();
-    const logEntry = `${timestamp}: ${email}`;
-
-    // Instead of writing to a file, log to console
-    console.log(logEntry);
+    // Log with a specific prefix for easy filtering
+    console.log(`SUBMITTED_EMAIL: ${timestamp}: ${email}`);
     
-    // In a real-world scenario, you might want to use a database or external logging service here
-
     res.json({ message: 'Email submitted successfully' });
 });
 
