@@ -5,53 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Ramsey Eleryan's Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
         }
-        .gateway-container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .gateway-card {
+            background-color: #1e1e1e;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        h1 {
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #bb86fc;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
         #emailForm {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        input, button {
-            padding: 0.5rem;
-            font-size: 1rem;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
+
+        input {
+            padding: 1rem;
             border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 50px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #bb86fc;
+        }
+
+        button {
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            background-color: #bb86fc;
+            color: #121212;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #9164c8;
+            transform: translateY(-2px);
+        }
+
+        .background-animation {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: linear-gradient(45deg, #bb86fc, #3700b3, #03dac6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="gateway-container">
-        <h1>Welcome to Ramsey Eleryan's Resume</h1>
-        <p>Please enter your email to access the resume:</p>
-        <form id="emailForm">
-            <input type="email" id="emailInput" placeholder="Enter your email" required>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="container">
+        <div class="gateway-card">
+            <div class="background-animation"></div>
+            <h1>Welcome to Ramsey Eleryan's Resume</h1>
+            <p>Please enter your <Bold>valid </Bold> email to access the resume:</p>
+            <form id="emailForm">
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button type="submit">Access Resume</button>
+            </form>
+        </div>
     </div>
     <script src="gateway.js"></script>
 </body>
