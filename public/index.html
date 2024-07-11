@@ -17,7 +17,14 @@
 
   gtag('config', 'G-XCLR2NFJ29');
 </script>
-
+<script>
+    window.onload = function() {
+        const storedEmail = localStorage.getItem('userEmail');
+        if (!storedEmail) {
+            window.location.href = 'gateway.html';
+        }
+    }
+</script>
 <body>
     <header>
         <h1>Ramsey -Adam- Eleryan</h1>
