@@ -1,74 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-:root {
-    --primary-color: #3a86ff;
-    --secondary-color: #8338ec;
-    --accent-color: #ff006e;
-    --text-color: #2b2d42;
-    --bg-color: #f8f9fa;
-    --section-bg: #ffffff;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+body, html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: var(--section-bg);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    min-height: 100vh;
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #ffffff;
-    padding: 40px 20px;
     text-align: center;
-    border-radius: 15px 15px 0 0;
+    margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
 }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-    animation: ripple 15s linear infinite;
-}
-
-@keyframes ripple {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-50%, -50%); }
-}
-
 .profile-photo {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid var(--section-bg);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    margin: 0 auto 20px;
+    margin: 0 auto 1rem;
     overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.05);
+    border: 3px solid #bb86fc;
 }
 
 .profile-photo img {
@@ -78,34 +39,9 @@ header::before {
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-h2 {
-    color: var(--primary-color);
-    margin-top: 30px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--secondary-color);
-    position: relative;
-    overflow: hidden;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-h2:hover::after {
-    transform: translateX(0);
+    font-weight: 600;
+    color: #bb86fc;
+    margin-bottom: 1rem;
 }
 
 .contact {
@@ -114,168 +50,135 @@ h2:hover::after {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    gap: 1rem;
 }
 
-.contact li {
-    margin: 5px 15px;
-    font-size: 1em;
+.contact li a {
+    color: #e0e0e0;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.contact li:hover {
-    transform: translateY(-3px);
-}
-
-.contact a {
-    color: #ffffff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.contact li a:hover {
+    color: #bb86fc;
 }
 
 .section {
-    background-color: var(--section-bg);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    transform: translateY(20px);
-    opacity: 0;
-}
-
-.section.visible {
-    transform: translateY(0);
-    opacity: 1;
 }
 
 .section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.intro {
-    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    color: #ffffff;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+h2 {
+    color: #bb86fc;
+    border-bottom: 2px solid #3700b3;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+.skills-languages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 .project-card {
-    background-color: var(--section-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
-    transform: rotate(45deg);
-    transition: all 0.5s ease;
-}
-
-.project-card:hover::before {
-    top: 100%;
-    left: 100%;
+    background-color: #2c2c2c;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px) rotate(2deg);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(187, 134, 252, 0.2);
 }
 
-.skills-languages {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.skills, .languages {
-    flex: 1 1 300px;
-    margin: 10px;
-}
-
-.skills ul, .languages ul {
-    padding-left: 20px;
-}
-
-.skills li, .languages li {
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.skills li::before, .languages li::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    transform: translateY(-50%) scale(0);
-    transition: transform 0.3s ease;
-}
-
-.skills li:hover::before, .languages li:hover::before {
-    transform: translateY(-50%) scale(1);
-}
-
-.skills li:hover, .languages li:hover {
-    transform: translateX(5px);
-    color: var(--accent-color);
+.project-card h3 {
+    color: #03dac6;
+    margin-top: 0;
 }
 
 .fas, .fab {
-    margin-right: 10px;
-    color: var(--accent-color);
+    margin-right: 0.5rem;
+    color: #03dac6;
+}
+
+input, button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+input {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #bb86fc;
+}
+
+button {
+    background-color: #bb86fc;
+    color: #121212;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #9164c8;
+    transform: translateY(-2px);
+}
+
+.background-animation {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: linear-gradient(45deg, #bb86fc, #3700b3, #03dac6);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    .project-grid {
+    .skills-languages {
         grid-template-columns: 1fr;
     }
-
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    .contact li {
-        margin: 5px 10px;
-        font-size: 0.9em;
-    }
-
-    .section {
-        padding: 15px;
+    
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
