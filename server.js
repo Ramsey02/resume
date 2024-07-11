@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,15 +21,14 @@ app.post('/api/submit-email', (req, res) => {
     }
 
     const timestamp = new Date().toISOString();
-    const logEntry = `${timestamp}: ${email}\n`;
+    const logEntry = `${timestamp}: ${email}`;
 
-    fs.appendFile('emails.log', logEntry, (err) => {
-        if (err) {
-            console.error('Error writing to log file:', err);
-            return res.status(500).json({ error: 'Internal server error' });
-        }
-        res.json({ message: 'Email submitted successfully' });
-    });
+    // Instead of writing to a file, log to console
+    console.log(logEntry);
+    
+    // In a real-world scenario, you might want to use a database or external logging service here
+
+    res.json({ message: 'Email submitted successfully' });
 });
 
 app.get('*', (req, res) => {
