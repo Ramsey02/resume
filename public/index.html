@@ -33,7 +33,7 @@
             <ul>
                 <li>🎓 Technion Computer Science 3<sup>rd</sup> year Student</li>
                 <li>🏆 Highly motivated with a strong academic record</li>
-                <li>💻 Proficient in C, C++, Python, Assembly, JavaScript, TypeScript, C#, HTML &amp; CSS</li>
+                <li>💻 Proficient in multiple programming languages and tools</li>
             </ul>
         </section>
         
@@ -61,23 +61,14 @@
             </div>
         </section>
 
-        <section class="skills-languages section">
-            <div class="skills">
-                <h2><i class="fas fa-tools"></i> SKILLS</h2>
-                <ul>    
-                    <li><i class="fas fa-code"></i> Programming: C, C++, Python, JavaScript, TypeScript, C#, Assembly, HTML, CSS</li>
-                    <li><i class="fas fa-terminal"></i> Tools: Git, Linux, Docker, WSL, various VMs</li>
-                    <li><i class="fas fa-users"></i> Soft Skills: Communication, Teamwork, Problem-solving, Critical thinking, Leadership</li>
-                </ul>
-            </div>
-            <div class="languages">
-                <h2><i class="fas fa-language"></i> LANGUAGES</h2>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Hebrew - Full Professional Proficiency</li>
-                    <li><i class="fas fa-check-circle"></i> English - Native Proficiency</li>
-                    <li><i class="fas fa-check-circle"></i> Arabic - Native Proficiency</li>
-                </ul>
-            </div>
+        <section id="languages-section" class="section">
+            <h2><i class="fas fa-language"></i> LANGUAGES</h2>
+            <div id="languages-content"></div>
+        </section>
+
+        <section id="skills-section" class="section">
+            <h2><i class="fas fa-tools"></i> SKILLS</h2>
+            <div id="skills-content"></div>
         </section>
 
         <section class="projects section">
@@ -107,6 +98,91 @@
             </div>
         </section>
     </div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const SkillBox = ({ skill, experience }) => (
+            <div className="skill-box">
+                <p className="skill-name">{skill}</p>
+                <p className="skill-exp">{experience}</p>
+            </div>
+        );
+
+        const LanguageBox = ({ language, proficiency }) => (
+            <div className="language-box">
+                <p className="language-name">{language}</p>
+                <p className="language-prof">{proficiency}</p>
+            </div>
+        );
+
+        const SkillsSection = () => {
+            const programmingSkills = [
+                { skill: 'C++', experience: '3 years' },
+                { skill: 'C', experience: '3 years' },
+                { skill: 'Python', experience: '3 years' },
+                { skill: 'JavaScript', experience: '1 year' },
+                { skill: 'TypeScript', experience: '1 year' },
+                { skill: 'C#', experience: '1 year' },
+                { skill: 'Assembly', experience: '1 year' },
+                { skill: 'HTML', experience: '1 year' },
+                { skill: 'CSS', experience: '1 year' },
+            ];
+
+            const tools = ['Git', 'Linux', 'Docker', 'WSL', 'Various VMs'];
+            const softSkills = ['Communication', 'Teamwork', 'Problem-solving', 'Critical thinking', 'Leadership'];
+
+            return (
+                <div>
+                    <div className="skills-section">
+                        <h3>Programming Languages</h3>
+                        <div className="skills-grid">
+                            {programmingSkills.map((skill, index) => (
+                                <SkillBox key={index} skill={skill.skill} experience={skill.experience} />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="skills-section">
+                        <h3>Tools</h3>
+                        <ul>
+                            {tools.map((tool, index) => (
+                                <li key={index}>{tool}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="skills-section">
+                        <h3>Soft Skills</h3>
+                        <ul>
+                            {softSkills.map((skill, index) => (
+                                <li key={index}>{skill}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        };
+
+        const LanguagesSection = () => {
+            const languages = [
+                { language: 'Hebrew', proficiency: 'Full Professional Proficiency' },
+                { language: 'English', proficiency: 'Native Proficiency' },
+                { language: 'Arabic', proficiency: 'Native Proficiency' },
+            ];
+
+            return (
+                <div className="languages-grid">
+                    {languages.map((lang, index) => (
+                        <LanguageBox key={index} language={lang.language} proficiency={lang.proficiency} />
+                    ))}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<SkillsSection />, document.getElementById('skills-content'));
+        ReactDOM.render(<LanguagesSection />, document.getElementById('languages-content'));
+    </script>
 
     <script>
         window.onload = function() {
