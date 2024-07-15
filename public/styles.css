@@ -182,3 +182,21 @@ button:hover {
         grid-template-columns: 1fr;
     }
 }
+.roadmap-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.roadmap-link:hover {
+    background-color: #e0e0e0;
+}
+
+.roadmap-link i {
+    margin-right: 5px;
+}
