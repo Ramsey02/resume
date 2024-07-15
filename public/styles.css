@@ -3,7 +3,13 @@
 
 /* Existing styles remain unchanged */
 
-/* New styles for the languages and skills sections */
+/* Updated styles for the skills-languages section */
+.skills-languages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
 .languages-grid, .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -35,23 +41,34 @@
     font-size: 0.9rem;
 }
 
-.skills-section h3 {
-    color: #03dac6;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.skills-section ul {
+.soft-skills-list {
     list-style-type: none;
     padding-left: 0;
 }
 
-.skills-section ul li {
+.soft-skills-list li {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.soft-skills-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.2);
+}
+
+#programming-skills, #tools {
+    margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
+    .skills-languages {
+        grid-template-columns: 1fr;
+    }
+    
     .languages-grid, .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }

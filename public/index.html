@@ -61,14 +61,25 @@
             </div>
         </section>
 
-        <section id="languages-section" class="section">
-            <h2><i class="fas fa-language"></i> LANGUAGES</h2>
-            <div id="languages-content"></div>
+        <section class="skills-languages section">
+            <div class="languages">
+                <h2><i class="fas fa-language"></i> LANGUAGES</h2>
+                <div id="languages-content"></div>
+            </div>
+            <div class="soft-skills">
+                <h2><i class="fas fa-users"></i> SOFT SKILLS</h2>
+                <div id="soft-skills-content"></div>
+            </div>
         </section>
 
-        <section id="skills-section" class="section">
-            <h2><i class="fas fa-tools"></i> SKILLS</h2>
-            <div id="skills-content"></div>
+        <section id="programming-skills" class="section">
+            <h2><i class="fas fa-code"></i> PROGRAMMING SKILLS</h2>
+            <div id="programming-skills-content"></div>
+        </section>
+
+        <section id="tools" class="section">
+            <h2><i class="fas fa-tools"></i> TOOLS</h2>
+            <div id="tools-content"></div>
         </section>
 
         <section class="projects section">
@@ -118,52 +129,6 @@
             </div>
         );
 
-        const SkillsSection = () => {
-            const programmingSkills = [
-                { skill: 'C++', experience: '3 years' },
-                { skill: 'C', experience: '3 years' },
-                { skill: 'Python', experience: '3 years' },
-                { skill: 'JavaScript', experience: '1 year' },
-                { skill: 'TypeScript', experience: '1 year' },
-                { skill: 'C#', experience: '1 year' },
-                { skill: 'Assembly', experience: '1 year' },
-                { skill: 'HTML', experience: '1 year' },
-                { skill: 'CSS', experience: '1 year' },
-            ];
-
-            const tools = ['Git', 'Linux', 'Docker', 'WSL', 'Various VMs'];
-            const softSkills = ['Communication', 'Teamwork', 'Problem-solving', 'Critical thinking', 'Leadership'];
-
-            return (
-                <div>
-                    <div className="skills-section">
-                        <h3>Programming Languages</h3>
-                        <div className="skills-grid">
-                            {programmingSkills.map((skill, index) => (
-                                <SkillBox key={index} skill={skill.skill} experience={skill.experience} />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="skills-section">
-                        <h3>Tools</h3>
-                        <ul>
-                            {tools.map((tool, index) => (
-                                <li key={index}>{tool}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="skills-section">
-                        <h3>Soft Skills</h3>
-                        <ul>
-                            {softSkills.map((skill, index) => (
-                                <li key={index}>{skill}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            );
-        };
-
         const LanguagesSection = () => {
             const languages = [
                 { language: 'Hebrew', proficiency: 'Full Professional Proficiency' },
@@ -180,8 +145,62 @@
             );
         };
 
-        ReactDOM.render(<SkillsSection />, document.getElementById('skills-content'));
+        const SoftSkillsSection = () => {
+            const softSkills = ['Communication', 'Teamwork', 'Problem-solving', 'Critical thinking', 'Leadership'];
+
+            return (
+                <ul className="soft-skills-list">
+                    {softSkills.map((skill, index) => (
+                        <li key={index}>{skill}</li>
+                    ))}
+                </ul>
+            );
+        };
+
+        const ProgrammingSkillsSection = () => {
+            const programmingSkills = [
+                { skill: 'C++', experience: '3 years' },
+                { skill: 'C', experience: '3 years' },
+                { skill: 'Python', experience: '3 years' },
+                { skill: 'JavaScript', experience: '1 year' },
+                { skill: 'TypeScript', experience: '1 year' },
+                { skill: 'C#', experience: '1 year' },
+                { skill: 'Assembly', experience: '1 year' },
+                { skill: 'HTML', experience: '1 year' },
+                { skill: 'CSS', experience: '1 year' },
+            ];
+
+            return (
+                <div className="skills-grid">
+                    {programmingSkills.map((skill, index) => (
+                        <SkillBox key={index} skill={skill.skill} experience={skill.experience} />
+                    ))}
+                </div>
+            );
+        };
+
+        const ToolsSection = () => {
+            const tools = [
+                { skill: 'Git', experience: 'Proficient' },
+                { skill: 'Linux', experience: 'Experienced' },
+                { skill: 'Docker', experience: 'Familiar' },
+                { skill: 'WSL', experience: 'Proficient' },
+                { skill: 'Various VMs', experience: 'Experienced' },
+            ];
+
+            return (
+                <div className="skills-grid">
+                    {tools.map((tool, index) => (
+                        <SkillBox key={index} skill={tool.skill} experience={tool.experience} />
+                    ))}
+                </div>
+            );
+        };
+
         ReactDOM.render(<LanguagesSection />, document.getElementById('languages-content'));
+        ReactDOM.render(<SoftSkillsSection />, document.getElementById('soft-skills-content'));
+        ReactDOM.render(<ProgrammingSkillsSection />, document.getElementById('programming-skills-content'));
+        ReactDOM.render(<ToolsSection />, document.getElementById('tools-content'));
     </script>
 
     <script>
